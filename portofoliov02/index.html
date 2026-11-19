@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAUZA KAIZAKU SETIAWAN — PORTFOLIO V0.3</title>
+  <meta
+    name="description"
+    content="Portfolio of Fauza Kaizaku Setiawan — UI/UX Designer, Web Developer, and Informatics Engineering Student at Telkom University Purwokerto."
+  />
+
+  <!-- Dynamic KAI. SVG Favicon (Accent dot flips between Oxblood & Glacial Cyan via app.js) -->
+  <link
+    id="dynamicFavicon"
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23121212'/%3E%3Ctext x='11' y='46' font-family='Arial Black, sans-serif' font-weight='900' font-size='36' fill='%23f4f4f2'%3EK%3C/text%3E%3Ccircle cx='48' cy='42' r='7' fill='%239b1c24'/%3E%3C/svg%3E"
+  />
+
+  <!-- Typography: Unbounded (Heavy Brutalist All-Caps) + Inter (Clean UI Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- =========================================================
+       CUSTOM CONCRETE ENTRY CURTAIN (GSAP REVEAL)
+       ========================================================= -->
+  <div class="intro-curtain" id="introCurtain" aria-hidden="true">
+    <div class="intro-top-meta">
+      <span class="intro-tag">FAUZA KAIZAKU SETIAWAN</span>
+      <span class="intro-status" id="introStatus">INITIALIZING ARCHITECTURE</span>
+    </div>
+
+    <div class="intro-inner">
+      <span class="intro-mark">KAI.</span>
+      <div class="intro-progress-wrap">
+        <span class="intro-label">SOFT CONCRETE — V0.3</span>
+        <span class="intro-counter" id="introCounter">00</span>
+      </div>
+    </div>
+
+    <div class="intro-bar-track">
+      <div class="intro-bar-fill" id="introBarFill"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       STICKY MINIMAL NAVBAR + MOBILE DRAWER
+       ========================================================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#top" class="brand-mark js-scroll" data-magnify>KAI.</a>
+
+      <nav class="nav-links" aria-label="Primary Navigation">
+        <a href="#about" class="js-scroll" data-i18n="nav_about" data-magnify>ABOUT</a>
+        <a href="#education" class="js-scroll" data-i18n="nav_education" data-magnify>EDUCATION</a>
+        <a href="#projects" class="js-scroll" data-i18n="nav_projects" data-magnify>PROJECTS</a>
+        <a href="#credentials" class="js-scroll" data-i18n="nav_credentials" data-magnify>CREDENTIALS</a>
+        <a href="#contact" class="js-scroll" data-i18n="nav_contact" data-magnify>CONTACT</a>
+      </nav>
+
+      <div class="nav-controls">
+        <!-- Language Toggle (EN | ID) -->
+        <div
+          class="lang-switch"
+          role="group"
+          aria-label="Language switcher"
+          data-tooltip="LANG [L]"
+        >
+          <button type="button" class="lang-btn active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="id">ID</button>
+        </div>
+
+        <!-- Dual-Polarity Theme Toggle (Oxblood Light <-> Glacial Cyan Dark) -->
+        <button
+          type="button"
+          class="theme-toggle"
+          id="themeToggle"
+          aria-label="Invert theme polarity"
+          data-magnetic
+          data-tooltip="INVERT [T]"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M12 3a9 9 0 0 1 0 18V3z" fill="currentColor" />
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          type="button"
+          class="mobile-menu-btn"
+          id="mobileMenuBtn"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Responsive Mobile Navigation Drawer -->
+    <nav class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation" aria-hidden="true">
+      <div class="container mobile-drawer-inner">
+        <a href="#about" class="js-scroll mobile-link" data-i18n="nav_about">ABOUT</a>
+        <a href="#education" class="js-scroll mobile-link" data-i18n="nav_education">EDUCATION</a>
+        <a href="#projects" class="js-scroll mobile-link" data-i18n="nav_projects">PROJECTS</a>
+        <a href="#credentials" class="js-scroll mobile-link" data-i18n="nav_credentials">CREDENTIALS</a>
+        <a href="#contact" class="js-scroll mobile-link" data-i18n="nav_contact">CONTACT</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- =========================================================
+         HERO SECTION (ASYMMETRIC + LIVE 3D CONCRETE MONOLITH)
+         ========================================================= -->
+    <section class="hero section">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-left">
+            <p class="eyebrow hero-reveal" data-i18n="hero_role" data-magnify>
+              UI/UX DESIGNER &amp; PRODUCT IDEATOR
+            </p>
+            <h1 class="hero-title hero-reveal" data-magnify>
+              FAUZA<br />
+              KAIZAKU<br />
+              SETIAWAN
+            </h1>
+            <p class="hero-sub hero-reveal" data-i18n="hero_sub" data-magnify>
+              INFORMATICS ENGINEERING STUDENT AT TELKOM UNIVERSITY PURWOKERTO. STRUCTURING IDEAS INTO CLEAR INTERFACES AND USABLE DIGITAL PRODUCTS.
+            </p>
+            <div class="hero-actions hero-reveal">
+              <a href="#projects" class="btn btn-dark js-scroll" data-magnetic data-i18n="hero_cta_projects">
+                VIEW PROJECTS
+              </a>
+              <a href="#crtConsoleSection" class="btn btn-light js-scroll" data-magnetic data-i18n="hero_cta_arcade">
+                PLAY CRT ARCADE
+              </a>
+              <a href="#contact" class="btn btn-light js-scroll" data-magnetic data-i18n="hero_cta_contact">
+                GET IN TOUCH
+              </a>
+            </div>
+          </div>
+
+          <!-- Interactive 3D Three.js Concrete Monolith + Pillar Switcher -->
+          <div class="hero-3d-wrap hero-reveal">
+            <div class="concrete-slab hero-monolith-card" id="heroMonolithCard" data-tilt-slab>
+              <div class="monolith-top-meta">
+                <span class="monolith-badge" id="monolithPillarBadge">01 // UI/UX ARCHITECTURE</span>
+                <span class="monolith-hint">CLICK TO SPIN</span>
+              </div>
+
+              <div class="monolith-canvas-box">
+                <canvas id="hero3dCanvas" aria-label="Interactive 3D Concrete Monolith"></canvas>
+              </div>
+
+              <div class="monolith-bottom-bar">
+                <p class="monolith-caption" id="monolithPillarCaption">
+                  HCI-DRIVEN SYSTEMS &amp; CLEAN PRODUCT ARCHITECTURE
+                </p>
+                <div class="monolith-dots" id="monolithDots" aria-hidden="true">
+                  <span class="m-dot active"></span>
+                  <span class="m-dot"></span>
+                  <span class="m-dot"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll-Scrubbed Architectural Ticker Strip -->
+      <div class="hero-ticker-shell" aria-hidden="true">
+        <div class="hero-ticker-track" id="heroTickerTrack">
+          <span>HCI &amp; QUALITY OF LIFE</span>
+          <span class="ticker-sep">✦</span>
+          <span>UI/UX ARCHITECTURE</span>
+          <span class="ticker-sep">✦</span>
+          <span>LARAVEL &amp; MARIADB</span>
+          <span class="ticker-sep">✦</span>
+          <span>THREE.JS &amp; CANVAS ENGINES</span>
+          <span class="ticker-sep">✦</span>
+          <span>ETS TOEIC 905</span>
+          <span class="ticker-sep">✦</span>
+          <span>TELKOM REG IV • SANGAT KOMPETEN</span>
+          <span class="ticker-sep">✦</span>
+          <span>HCI &amp; QUALITY OF LIFE</span>
+          <span class="ticker-sep">✦</span>
+          <span>UI/UX ARCHITECTURE</span>
+          <span class="ticker-sep">✦</span>
+          <span>LARAVEL &amp; MARIADB</span>
+          <span class="ticker-sep">✦</span>
+          <span>THREE.JS &amp; CANVAS ENGINES</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         ABOUT & INTERACTIVE BENTO
+         ========================================================= -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title reveal-up" data-i18n="about_title" data-magnify>ABOUT</h2>
+
+        <div class="about-grid">
+          <!-- Left: Focus Mode Switcher + Bio + Magnetic Skill Pills -->
+          <div class="concrete-slab about-copy reveal-up">
+            <!-- Interactive Focus Mode Switcher -->
+            <div class="focus-tabs" id="aboutFocusTabs" role="tablist" aria-label="Focus areas">
+              <button type="button" class="focus-tab active" data-focus="hci" role="tab" aria-selected="true">
+                01 UI/UX &amp; HCI
+              </button>
+              <button type="button" class="focus-tab" data-focus="web" role="tab" aria-selected="false">
+                02 WEB &amp; SYSTEMS
+              </button>
+              <button type="button" class="focus-tab" data-focus="english" role="tab" aria-selected="false">
+                03 ENGLISH COACHING
+              </button>
+            </div>
+
+            <p class="lead-text" id="aboutFocusLead" data-magnify>
+              I ORGANIZE CONCEPTS, DEFINE USER FLOWS, AND SHAPE CLEAN INTERFACES BEFORE HEAVY CODE BEGINS.
+            </p>
+            <p class="body-text" id="aboutFocusBody" data-magnify>
+              Focused on Human-Computer Interaction and practical Quality of Life software design. Backed by an official ETS TOEIC 905 score and real-world enterprise internship experience, I am available for UI/UX design, front-end web builds, and private English tutoring or interview coaching.
+            </p>
+
+            <!-- Tactile Magnetic Skill Pills -->
+            <div class="skill-pills-wrap" id="skillPillsWrap">
+              <span class="skill-pill" data-group="hci" data-magnetic>Figma</span>
+              <span class="skill-pill" data-group="hci" data-magnetic>Canva</span>
+              <span class="skill-pill" data-group="hci" data-magnetic>UI Architecture</span>
+              <span class="skill-pill" data-group="hci" data-magnetic>Prototyping</span>
+              <span class="skill-pill" data-group="web" data-magnetic>HTML / CSS / JS</span>
+              <span class="skill-pill" data-group="web" data-magnetic>Laravel &amp; PHP</span>
+              <span class="skill-pill" data-group="web" data-magnetic>WordPress</span>
+              <span class="skill-pill" data-group="web" data-magnetic>Three.js &amp; Canvas</span>
+              <span class="skill-pill" data-group="web" data-magnetic>Unity 2D</span>
+              <span class="skill-pill" data-group="web" data-magnetic>MariaDB &amp; openGauss</span>
+              <span class="skill-pill" data-group="english" data-magnetic>ETS TOEIC 905</span>
+              <span class="skill-pill" data-group="english" data-magnetic>Interview Coaching</span>
+              <span class="skill-pill" data-group="english" data-magnetic>Private Tutoring</span>
+            </div>
+          </div>
+
+          <!-- Right: Portrait Slot + Animated Proof Micro-Slabs -->
+          <div class="about-right-stack reveal-up">
+            <div class="concrete-slab portrait-frame" data-tilt-slab>
+              <div class="missing-file-box" id="portraitBox">
+                <svg class="missing-icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                  <rect x="6" y="8" width="36" height="32" rx="6" stroke="currentColor" stroke-width="2.5" />
+                  <circle cx="17" cy="19" r="3" fill="currentColor" />
+                  <path
+                    d="M9 35L19 25L26 32L32 26L39 35"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <span class="missing-label">PORTRAIT_SLOT.JPG</span>
+                <span class="missing-hint" data-i18n="portrait_hint">SET IMAGE PATH IN DATA.JS</span>
+              </div>
+            </div>
+
+            <div class="proof-micro-grid">
+              <div class="concrete-slab proof-slab" data-tilt-slab>
+                <span class="proof-kicker">OFFICIAL ETS TOEIC</span>
+                <span class="proof-number" id="toeicCounter" data-target="905">000</span>
+                <span class="proof-sub">LISTENING 490 • READING 415</span>
+              </div>
+
+              <div class="concrete-slab proof-slab proof-slab--accent" data-tilt-slab>
+                <span class="proof-kicker">TELKOM REG IV</span>
+                <span class="proof-stamp">SANGAT KOMPETEN</span>
+                <span class="proof-sub">NETWORKING DIVISION INTERN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         EDUCATION & TRACK: HORIZONTAL SLIDER + 3-TILE GMAPS PANEL
+         ========================================================= -->
+    <section id="education" class="section">
+      <div class="container">
+        <div class="section-head-row reveal-up">
+          <h2 class="section-title" data-i18n="edu_title" data-magnify>EDUCATION &amp; TRACK</h2>
+          <div class="legend-pills">
+            <span class="legend-pill">ACADEMIC</span>
+            <span class="legend-pill legend-pill--accent" data-i18n="legend_industry">INDUSTRIAL INTERNSHIP</span>
+          </div>
+        </div>
+
+        <!-- Horizontal Center-Focus Slider -->
+        <div class="edu-carousel-shell reveal-up">
+          <div class="edu-stage" id="eduStage" aria-live="polite">
+            <!-- Dynamically populated by app.js from data.js -->
+          </div>
+
+          <div class="carousel-nav-bar">
+            <button
+              type="button"
+              class="arrow-btn"
+              id="eduPrevBtn"
+              aria-label="Previous stop"
+              data-magnetic
+              data-tooltip="PREV [←]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18L9 12L15 6" />
+              </svg>
+            </button>
+
+            <span class="carousel-counter" id="eduCounter">01 OF 05</span>
+
+            <button
+              type="button"
+              class="arrow-btn"
+              id="eduNextBtn"
+              aria-label="Next stop"
+              data-magnetic
+              data-tooltip="NEXT [→]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18L15 12L9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Live 3-Tile Google Bento Panel Below Slider -->
+        <div class="concrete-slab maps-bento-panel reveal-up" id="eduMapPanel">
+          <div class="maps-bento-header">
+            <div>
+              <div class="maps-meta-row">
+                <span class="map-kicker" id="mapCity">PURWOKERTO, CENTRAL JAVA</span>
+                <span class="map-type-badge" id="mapTypeBadge">ACADEMIC</span>
+              </div>
+              <h3 class="map-place" id="mapTitle" data-magnify>TELKOM UNIVERSITY PURWOKERTO</h3>
+            </div>
+            <a
+              id="mapExternalLink"
+              href="https://www.google.com/maps"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-light btn-sm"
+              data-magnetic
+              data-i18n="open_maps"
+            >
+              OPEN GOOGLE MAPS
+            </a>
+          </div>
+
+          <!-- 3-Tile Live Google Imagery Grid -->
+          <div class="maps-bento-grid">
+            <div class="bento-tile bento-street">
+              <iframe
+                id="eduStreetIframe"
+                title="Live Street View"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                allowfullscreen
+                src=""
+              ></iframe>
+              <span class="bento-badge" data-i18n="tile_street">SEE OUTSIDE • STREET VIEW</span>
+            </div>
+
+            <div class="bento-tile bento-roadmap">
+              <iframe
+                id="eduMapIframe"
+                title="Interactive Google Map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src=""
+              ></iframe>
+              <span class="bento-badge" data-i18n="tile_map">PINNED MAP</span>
+            </div>
+
+            <div class="bento-tile bento-satellite">
+              <iframe
+                id="eduSatIframe"
+                title="Satellite Aerial View"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                src=""
+              ></iframe>
+              <a
+                id="eduPhotosLink"
+                href="https://www.google.com/maps"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bento-photo-cta"
+                data-i18n="see_photos"
+              >
+                SEE PHOTOS ON GOOGLE
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PROJECTS: ISIM FLAGSHIP + E-COMMERCE + RETRO CRT CONSOLE
+         ========================================================= -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title reveal-up" data-i18n="projects_title" data-magnify>PROJECTS</h2>
+
+        <div class="projects-stack">
+          <!-- PROJECT 1: ISIM — OXBLOOD / GLACIAL CYAN FLAGSHIP SLAB -->
+          <article class="concrete-slab project-card project-card--flagship reveal-up" data-project="isim" data-tilt-slab>
+            <div class="telkom-watermark" id="isimWatermark" aria-hidden="true">
+              <img src="assets/telkom-logo.png" alt="" />
+            </div>
+
+            <div class="project-meta">
+              <span class="tag tag--flagship" data-i18n="tag_flagship">FLAGSHIP ENTERPRISE</span>
+              <span class="tag tag--flagship">PT. TELKOM INDONESIA REGIONAL IV</span>
+              <span class="tag tag--flagship">SANGAT KOMPETEN</span>
+            </div>
+
+            <h3 class="project-title" data-magnify>ISIM — INVENTORY MANAGEMENT SYSTEM</h3>
+            <p class="body-text" data-i18n="proj_isim_desc" data-magnify>
+              Internal inventory management web application built during my internship for the Networking Division staff at PT. Telkom Indonesia Regional IV Semarang. Handles incoming/outgoing stock tracking, master item records, category controls, and real-time summary charts.
+            </p>
+
+            <div class="project-specs">
+              <div class="spec-cell">
+                <span class="spec-label">STACK</span>
+                <span class="spec-val">Laravel, PHP, Python, MariaDB</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">SECURITY</span>
+                <span class="spec-val">CAPTCHA, Email Verification, Role Access</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">PROOF</span>
+                <span class="spec-val" data-i18n="isim_proof_val">Walkthrough Video + Office Docs</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <button
+                type="button"
+                class="btn btn-flagship project-detail-btn"
+                data-open-project="isim"
+                data-magnetic
+                data-i18n="open_case_study"
+              >
+                OPEN CASE STUDY &amp; DEMO
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: E-COMMERCE (RAW CONCRETE GRAYSCALE) -->
+          <article class="concrete-slab project-card reveal-up" data-project="ecommerce" data-tilt-slab>
+            <div class="project-meta">
+              <span class="tag">E-COMMERCE</span>
+              <span class="tag">WEB ARCHITECTURE</span>
+            </div>
+            <h3 class="project-title" data-magnify>APPAREL E-COMMERCE PLATFORM</h3>
+            <p class="body-text" data-i18n="proj_ecom_desc" data-magnify>
+              Minimalist retail storefront inspired by clean modern apparel grids. Built with WordPress and custom front-end code, integrating real Indonesian payment gateways and live order shipment tracking.
+            </p>
+
+            <div class="project-specs">
+              <div class="spec-cell">
+                <span class="spec-label">PLATFORM</span>
+                <span class="spec-val">WordPress + Custom Front-End</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">PAYMENTS</span>
+                <span class="spec-val">Midtrans, Xendit, Bank Transfer</span>
+              </div>
+              <div class="spec-cell">
+                <span class="spec-label">FEATURE</span>
+                <span class="spec-val">Live Shipment Tracking Flow</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <button
+                type="button"
+                class="btn btn-light btn-sm project-detail-btn"
+                data-open-project="ecommerce"
+                data-magnetic
+                data-i18n="read_brief"
+              >
+                PROJECT BRIEF
+              </button>
+            </div>
+          </article>
+
+          <!-- PROJECT 3: RETRO CRT CONSOLE & 4-CARTRIDGE INTERACTIVE ARCADE -->
+          <article class="concrete-slab project-card crt-console-slab reveal-up" id="crtConsoleSection">
+            <div class="project-meta">
+              <span class="tag">INTERACTIVE LAB • 4 PLAYABLE ENGINES</span>
+              <span class="tag">WEB AUDIO SYNTH • 2D CANVAS &amp; THREE.JS 3D</span>
+            </div>
+
+            <div class="crt-header-row">
+              <div>
+                <h3 class="project-title" data-magnify>KAI-VISION CRT // 4-CARTRIDGE CONSOLE</h3>
+                <p class="body-text" data-i18n="crt_desc" data-magnify>
+                  Hover any cartridge below to preview its procedural synth motif, then click INSERT &amp; PLAY to pull straight into the CRT monitor. Four completely different genres built in vanilla JavaScript, HTML5 Canvas, and Three.js WebGL.
+                </p>
+              </div>
+              <button
+                type="button"
+                class="btn btn-light btn-sm"
+                id="crtMuteBtn"
+                aria-pressed="false"
+                data-magnetic
+              >
+                SFX: ON
+              </button>
+            </div>
+
+            <!-- Sculpted Retro CRT Monitor -->
+            <div class="crt-tv-unit" id="crtTvUnit">
+              <div class="crt-bezel">
+                <div class="crt-bezel-top">
+                  <span class="crt-brand-plate">KAI-VISION TRINITRON // MODEL V0.3</span>
+                  <div class="crt-leds">
+                    <span class="crt-led crt-led--power" id="crtPowerLed"></span>
+                    <span class="crt-led-label" id="crtStatusText">STANDBY • INSERT CARTRIDGE</span>
+                  </div>
+                </div>
+
+                <!-- Curved CRT Glass Tube (Standby Attract Screen) -->
+                <div class="crt-screen-frame" id="crtPreviewFrame">
+                  <div class="crt-scanlines" aria-hidden="true"></div>
+                  <div class="crt-phosphor-flash" id="crtFlash" aria-hidden="true"></div>
+
+                  <div class="crt-attract-screen" id="crtAttractScreen">
+                    <span class="attract-kicker" id="attractSlotTag">NO CARTRIDGE LOADED</span>
+                    <h4 class="attract-title" id="attractTitle">SELECT A CARTRIDGE BELOW</h4>
+                    <p class="attract-desc" id="attractDesc">
+                      HOVER A CASSETTE TO PREVIEW AUDIO • CLICK TO INSERT &amp; ZOOM INTO CRT
+                    </p>
+                    <div class="attract-meta" id="attractMeta">
+                      <span>01 PARKOUR</span>
+                      <span>02 50-SPELL ROGUELIKE</span>
+                      <span>03 CAMPUS FIGHTER</span>
+                      <span>04 PS1 3D BOSS CLIMBER</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="crt-bezel-bottom">
+                  <div class="crt-speaker-grille" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                  </div>
+                  <span class="crt-channel-readout" id="crtChannelReadout">CH-00 // AV-IN</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4-Cartridge Physical Pop-Up Bay -->
+            <div class="cartridge-bay" id="cartridgeBay" role="list">
+              <!-- Cartridge 01 -->
+              <button
+                type="button"
+                class="cartridge-card cart--runner"
+                data-cart="runner"
+                role="listitem"
+              >
+                <span class="cart-grip" aria-hidden="true"></span>
+                <span class="cart-num">CART 01</span>
+                <span class="cart-label-plate">
+                  <span class="cart-genre">SYNTH PARKOUR &amp; BLASTER</span>
+                  <strong class="cart-name">GRAVITY FLIP RUNNER</strong>
+                </span>
+                <span class="cart-cta">INSERT &amp; PLAY →</span>
+              </button>
+
+              <!-- Cartridge 02 -->
+              <button
+                type="button"
+                class="cartridge-card cart--grimoire"
+                data-cart="grimoire"
+                role="listitem"
+              >
+                <span class="cart-grip" aria-hidden="true"></span>
+                <span class="cart-num">CART 02</span>
+                <span class="cart-label-plate">
+                  <span class="cart-genre">50-SPELL WIZARD ROGUELIKE</span>
+                  <strong class="cart-name">GRIMOIRE: ABYSS</strong>
+                </span>
+                <span class="cart-cta">INSERT &amp; PLAY →</span>
+              </button>
+
+              <!-- Cartridge 03 -->
+              <button
+                type="button"
+                class="cartridge-card cart--campus"
+                data-cart="campus"
+                role="listitem"
+              >
+                <span class="cart-grip" aria-hidden="true"></span>
+                <span class="cart-num">CART 03</span>
+                <span class="cart-label-plate">
+                  <span class="cart-genre">6-FIGHTER ARCADE BRAWLER</span>
+                  <strong class="cart-name">CAMPUS COMBAT</strong>
+                </span>
+                <span class="cart-cta">INSERT &amp; PLAY →</span>
+              </button>
+
+              <!-- Cartridge 04 -->
+              <button
+                type="button"
+                class="cartridge-card cart--monolith"
+                data-cart="monolith"
+                role="listitem"
+              >
+                <span class="cart-grip" aria-hidden="true"></span>
+                <span class="cart-num">CART 04</span>
+                <span class="cart-label-plate">
+                  <span class="cart-genre">PS1/PS2 3D BOSS CLIMBER</span>
+                  <strong class="cart-name">VEIL OF THE MONOLITH</strong>
+                </span>
+                <span class="cart-cta">INSERT &amp; PLAY →</span>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         CREDENTIALS: FULL-WIDTH 3D PEEKING DECK + WIDE PANEL BELOW
+         ========================================================= -->
+    <section id="credentials" class="section">
+      <div class="container">
+        <h2 class="section-title reveal-up" data-i18n="cred_title" data-magnify>CREDENTIALS</h2>
+
+        <div class="cred-carousel-shell reveal-up">
+          <div class="cred-deck-stage" id="credDeckStage" aria-live="polite">
+            <!-- Dynamically populated by app.js from data.js -->
+          </div>
+
+          <div class="carousel-nav-bar">
+            <button
+              type="button"
+              class="arrow-btn"
+              id="prevCredBtn"
+              aria-label="Previous credential"
+              data-magnetic
+              data-tooltip="PREV [←]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 18L9 12L15 6" />
+              </svg>
+            </button>
+
+            <span class="carousel-counter" id="credCounter">01 OF 05</span>
+
+            <button
+              type="button"
+              class="arrow-btn"
+              id="nextCredBtn"
+              aria-label="Next credential"
+              data-magnetic
+              data-tooltip="NEXT [→]"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18L15 12L9 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="concrete-slab cred-detail-panel reveal-up" id="credDetailPanel">
+          <div class="cred-detail-top">
+            <div>
+              <p class="detail-issuer" id="detailIssuer">PT. TELKOM INDONESIA REGIONAL IV</p>
+              <h3 class="detail-title" id="detailTitle" data-magnify>
+                INDUSTRIAL INTERNSHIP — SANGAT KOMPETEN
+              </h3>
+            </div>
+            <span class="detail-meta" id="detailMeta">SEMARANG, INDONESIA • MARCH 2023</span>
+          </div>
+          <div class="detail-divider"></div>
+          <p class="body-text detail-desc" id="detailDesc" data-magnify></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       JUMANJI CRT FULL-FOCUS ARCADE THEATER (ACTIVE GAME OVERLAY)
+       ========================================================= -->
+  <div class="crt-theater-backdrop" id="crtTheater" aria-hidden="true">
+    <div class="crt-theater-shell" id="crtTheaterShell" role="dialog" aria-modal="true" aria-label="CRT Arcade Theater">
+      <div class="crt-theater-bar">
+        <div class="crt-theater-title-wrap">
+          <span class="crt-led crt-led--active"></span>
+          <span class="crt-theater-cart-tag" id="theaterCartTag">CART 01</span>
+          <strong class="crt-theater-title" id="theaterTitle">GRAVITY FLIP RUNNER</strong>
+        </div>
+
+        <div class="crt-theater-actions">
+          <button type="button" class="btn btn-light btn-xs theater-btn" id="theaterMuteBtn">SFX: ON</button>
+          <button type="button" class="btn btn-dark btn-xs theater-btn theater-eject-btn" id="theaterEjectBtn">
+            ⏏ EJECT CARTRIDGE
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Game Viewport (Injected dynamically by the active cartridge engine) -->
+      <div class="crt-theater-screen" id="crtTheaterScreen">
+        <div class="crt-scanlines crt-scanlines--subtle" aria-hidden="true"></div>
+        <div class="crt-game-mount" id="crtGameMount"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       PROJECT CASE STUDY / BRIEF MODAL (2x2 ARCHITECTURAL SPEC GRID)
+       ========================================================= -->
+  <div class="modal-backdrop" id="projectModal" aria-hidden="true">
+    <div
+      class="modal-drawer"
+      id="modalDrawer"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div class="modal-top">
+        <div class="modal-badges">
+          <span class="tag" id="modalTag">PROJECT BRIEF</span>
+          <span class="tag tag--stamp" id="modalStamp" hidden>SANGAT KOMPETEN</span>
+        </div>
+        <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Close modal" data-magnetic>
+          CLOSE
+        </button>
+      </div>
+
+      <h3 class="modal-title" id="modalTitle"></h3>
+      <p class="body-text modal-body" id="modalBody"></p>
+
+      <div class="modal-media-section" id="modalMediaSection" hidden>
+        <div class="modal-media-tabs" id="modalMediaTabs" role="tablist"></div>
+        <div class="modal-media-stage" id="modalMediaStage"></div>
+      </div>
+
+      <div class="modal-arch-strip" id="modalArchStrip" hidden></div>
+      <div class="modal-spec-grid" id="modalSpecGrid"></div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       FOOTER: SUBTLE ACCENT + CLICK-TO-COPY + OFFICIAL ICONS
+       ========================================================= -->
+  <footer id="contact" class="footer">
+    <div class="container">
+      <div class="footer-head">
+        <h2 class="footer-name" data-magnify>FAUZA KAIZAKU SETIAWAN</h2>
+        <div class="footer-sub-wrap">
+          <span class="footer-accent-dot" aria-hidden="true"></span>
+          <p class="footer-sub" data-i18n="footer_semester" data-magnify>
+            5TH SEMESTER INFORMATICS ENGINEERING — TELKOM UNIVERSITY PURWOKERTO
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3 class="footer-heading" data-i18n="footer_nav">NAVIGATION</h3>
+          <ul class="footer-list">
+            <li><a href="#about" class="js-scroll" data-i18n="nav_about">ABOUT</a></li>
+            <li><a href="#education" class="js-scroll" data-i18n="nav_education">EDUCATION</a></li>
+            <li><a href="#projects" class="js-scroll" data-i18n="nav_projects">PROJECTS</a></li>
+            <li><a href="#credentials" class="js-scroll" data-i18n="nav_credentials">CREDENTIALS</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading" data-i18n="footer_contact">DIRECT CONTACT</h3>
+          <ul class="contact-icon-list">
+            <li>
+              <button
+                type="button"
+                class="contact-row-btn"
+                id="copyOutlookBtn"
+                data-copy=""
+                data-tooltip="CLICK TO COPY"
+              >
+                <span class="contact-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h9V3Zm-4.5 12.2c-1.9 0-3.2-1.4-3.2-3.2s1.3-3.2 3.2-3.2 3.2 1.4 3.2 3.2-1.3 3.2-3.2 3.2Zm0-4.9c-.95 0-1.6.75-1.6 1.7s.65 1.7 1.6 1.7 1.6-.75 1.6-1.7-.65-1.7-1.6-1.7Z" />
+                    <path d="M14.5 6.5V19h5.5a1 1 0 0 0 1-1V7.5a1 1 0 0 0-1-1h-5.5Zm.8 1.8 2.45 2.05 2.45-2.05v1.6l-2.45 2.05-2.45-2.05V8.3Z" opacity="0.72" />
+                  </svg>
+                </span>
+                <span class="contact-text-wrap">
+                  <span class="contact-platform">OUTLOOK</span>
+                  <span class="contact-value" id="emailPrimaryText">
+                    fauzakaizakusetiawan@student.telkomuniversity.ac.id
+                  </span>
+                </span>
+                <span class="copied-pill" aria-live="polite">COPIED</span>
+              </button>
+            </li>
+
+            <li>
+              <button
+                type="button"
+                class="contact-row-btn"
+                id="copyGmailBtn"
+                data-copy=""
+                data-tooltip="CLICK TO COPY"
+              >
+                <span class="contact-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 6.5A2.5 2.5 0 0 1 5.5 4h13A2.5 2.5 0 0 1 21 6.5v11a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 17.5v-11Zm2 1.85V17.5c0 .28.22.5.5.5H7v-6.75l5 3.75 5-3.75V18h1.5a.5.5 0 0 0 .5-.5V8.35L12 13.6 5 8.35Zm13.06-2.35H5.94L12 10.55 18.06 6Z" />
+                  </svg>
+                </span>
+                <span class="contact-text-wrap">
+                  <span class="contact-platform">GMAIL</span>
+                  <span class="contact-value" id="emailSecondaryText">
+                    kaizaku.telkomuniv@gmail.com
+                  </span>
+                </span>
+                <span class="copied-pill" aria-live="polite">COPIED</span>
+              </button>
+            </li>
+
+            <li>
+              <a
+                id="whatsappLink"
+                href="https://wa.me/6280000000000"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="contact-row-btn"
+              >
+                <span class="contact-icon-box" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.04 2a9.94 9.94 0 0 0-8.56 15.02L2 22l5.13-1.43A9.96 9.96 0 1 0 12.04 2Zm0 18.18a8.24 8.24 0 0 1-4.2-1.15l-.3-.18-3.04.85.82-2.96-.2-.31a8.26 8.26 0 1 1 6.92 3.75Zm4.53-6.19c-.25-.12-1.47-.73-1.7-.81-.23-.08-.39-.12-.56.13-.16.24-.64.81-.79.97-.14.17-.29.19-.54.06a6.75 6.75 0 0 1-2-1.23 7.56 7.56 0 0 1-1.39-1.73c-.15-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.06-.12-.56-1.35-.77-1.85-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.87.85-.87 2.08s.89 2.41 1.01 2.58c.13.17 1.75 2.68 4.25 3.76.59.26 1.06.41 1.42.53.6.19 1.14.16 1.57.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.07-.11-.23-.17-.48-.29Z" />
+                  </svg>
+                </span>
+                <span class="contact-text-wrap">
+                  <span class="contact-platform">WHATSAPP</span>
+                  <span class="contact-value" id="whatsappText" data-i18n="wa_cta">
+                    DIRECT MESSAGE • PROJECTS &amp; ENGLISH COACHING
+                  </span>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">SOCIALS</h3>
+          <div class="social-icon-row">
+            <a
+              id="githubLink"
+              href="https://github.com/kaimiongmiong012"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="GitHub"
+              data-magnetic
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.24c0 4.52 2.87 8.36 6.84 9.71.5.1.68-.22.68-.49 0-.24-.01-.88-.01-1.73-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.89 1.57 2.34 1.12 2.91.85.09-.66.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.3.1-2.72 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85 0 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.42.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.95-2.34 4.82-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.25 10.25 0 0 0 22 12.24C22 6.58 17.52 2 12 2Z" />
+              </svg>
+            </a>
+
+            <a
+              id="linkedinLink"
+              href="https://www.linkedin.com/in/fauza-kaizaku-439338327"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="LinkedIn"
+              data-magnetic
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M5.37 3.5a1.88 1.88 0 1 1 0 3.76 1.88 1.88 0 0 1 0-3.76ZM3.75 8.75h3.25V20.5H3.75V8.75Zm5.5 0h3.11v1.61h.04c.43-.82 1.5-1.69 3.09-1.69 3.31 0 3.92 2.18 3.92 5.01v6.82h-3.25v-6.05c0-1.44-.03-3.3-2.01-3.3-2.01 0-2.32 1.57-2.32 3.19v6.16H9.25V8.75Z" />
+              </svg>
+            </a>
+
+            <a
+              id="instagramLink"
+              href="https://www.instagram.com/kaieaych"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-btn"
+              aria-label="Instagram"
+              data-magnetic
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>PURWOKERTO, INDONESIA</span>
+        <span>&copy; 2026 FAUZA KAIZAKU SETIAWAN</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- GSAP Motion Engine + Three.js WebGL 3D Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Modular V0.3 Scripts -->
+  <script src="data.js"></script>
+  <script src="grimoire-data.js"></script>
+  <script src="game-runner.js"></script>
+  <script src="game-grimoire.js"></script>
+  <script src="game-campus.js"></script>
+  <script src="game-monolith.js"></script>
+  <script src="crt-console.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
